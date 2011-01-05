@@ -9,6 +9,8 @@ gem 'haml'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+gem 'devise'
+
 group :test, :development do
   gem "rspec-rails", "~> 2.4"
 end
