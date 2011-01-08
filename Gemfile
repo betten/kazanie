@@ -11,6 +11,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'devise'
 
+gem 'cancan'
+
 group :test, :development do
   gem "rspec-rails", "~> 2.4"
 end
