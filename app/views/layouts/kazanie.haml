@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title Kazanie
+
+    <!-- meta -->
+    = csrf_meta_tag
+
+    <!-- stylesheets -->
+    = stylesheet_link_tag "reset"
+    = stylesheet_link_tag "960"
+    = yield :stylesheets
+
+    <!-- javascripts -->
+    = yield :javascripts
+
+  %body
+
+    #header
+      = render "shared/header"
+
+    #body
+      %p.notice= notice
+      %p.alert= alert
+
+      = yield
