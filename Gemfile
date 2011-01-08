@@ -13,6 +13,9 @@ gem 'devise'
 
 gem 'cancan'
 
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.8.1'
+
 group :test, :development do
   gem "rspec-rails", "~> 2.4"
 end
