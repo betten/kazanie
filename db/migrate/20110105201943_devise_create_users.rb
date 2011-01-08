@@ -11,6 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.token_authenticatable
 
 
+      t.boolean :admin, :default => false
       t.timestamps
     end
 
