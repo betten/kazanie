@@ -4,8 +4,9 @@ class CreateWorks < ActiveRecord::Migration
       t.integer :project_id
       t.integer :user_id
       
-      t.string :title
       t.string :image_uid
+
+      t.string :title
       t.text :text
 
       t.timestamps

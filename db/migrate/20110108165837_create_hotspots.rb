@@ -4,10 +4,11 @@ class CreateHotspots < ActiveRecord::Migration
       t.integer :work_id
       t.integer :user_id
 
+      t.string :image_uid
+
       t.string :cx
       t.string :cy
       t.string :radius
-      t.string :image_uid
       t.string :title
       t.text :text
 
