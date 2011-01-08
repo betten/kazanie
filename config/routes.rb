@@ -1,6 +1,18 @@
 Kazanie::Application.routes.draw do
   devise_for :users
 
+  resources :projects do
+
+    resources :works do
+
+      resources :hotspots do
+
+      end
+
+    end
+
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
