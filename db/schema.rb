@@ -10,7 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110105201943) do
+ActiveRecord::Schema.define(:version => 20110108165837) do
+
+  create_table "hotspots", :force => true do |t|
+    t.integer  "work_id"
+    t.integer  "user_id"
+    t.string   "image_uid"
+    t.string   "cx"
+    t.string   "cy"
+    t.string   "radius"
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                             :default => "",    :null => false
@@ -27,5 +47,15 @@ ActiveRecord::Schema.define(:version => 20110105201943) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "works", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.string   "image_uid"
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

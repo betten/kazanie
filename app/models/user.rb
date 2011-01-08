@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :trackable, :validatable
 
   has_many :projects
+  has_many :works
+  has_many :hotspots
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation
