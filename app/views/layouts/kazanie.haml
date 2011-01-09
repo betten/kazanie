@@ -12,6 +12,11 @@
     = yield :stylesheets
 
     <!-- javascripts -->
+    = javascript_include_tag "lib/jquery-min.js"
+    = javascript_include_tag "lib/underscore-min.js"
+    = javascript_include_tag "lib/backbone-min.js"
+    = javascript_include_tag "lib/underscore-min.js"
+    = javascript_include_tag "lib/raphael-min.js"
     = yield :javascripts
 
   %body
