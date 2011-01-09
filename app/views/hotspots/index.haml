@@ -1,0 +1,14 @@
+.h1= "#{@project.title} - #{@work.title}"
+.h2 Hotspots
+
+.image
+  = image_tag(@work.image.process(:resize, "900x900>").url)
+  .hotspots
+    - @work.hotspots.each do |hotspot|
+      .hotspot{ :cx => hotspot.cx, :cy => hotspot.cy, :r => hotspot.radius }
+        .title= hotspot.title
+        .text= hotspot.text
+        .url= hotspot.image.process("900x900>").url
+        .image= image_tag(hotspot.image.process("900x900>").url)
+
+= link_to 'new hotspot', new_project_work_hotspot_path(@project, @work)

@@ -1,0 +1,19 @@
+.h1= @project.title
+- if can? :update, @project
+  = link_to 'edit project', edit_project_path(@project)
+
+
+#works-slider
+  .title Works
+  - if can? :update, @project
+    .links
+      = link_to 'edit works', project_works_path(@project)
+      = link_to 'new work', new_project_work_path(@project)
+  .works
+    - @project.works.each do |work|
+      .work
+        .data
+          = work.title
+        .thumb
+          = image_tag(work.image.thumb("100x100#").url)
+    

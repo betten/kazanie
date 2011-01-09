@@ -2,13 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new
 
-    if user.admin?
+    can :read, :all
+
+    if user.present? and user.admin?
       can :manage, :all
-    else
-      can :read, :all
-
+    elsif user.present?
       can :create, Project
       can :create, Work do |work|
         work.project.user.eql?(user)
@@ -21,5 +20,6 @@ class Ability
       can :manage, Work, :user_id => user.id
       can :manage, Hotspot, :user_id => user.id
     end
+
   end
 end

@@ -1,0 +1,11 @@
+.h1= @project.title
+.h2 Works
+
+.works
+  - @project.works.each do |work|
+    .work
+      .title= work.title
+      .thumb= image_tag(work.image.thumb("200x200#").url)
+      .links
+        = link_to 'edit', edit_project_work_path(@project, work)
+        = link_to 'hotspots', project_work_hotspots_path(@project, work)
