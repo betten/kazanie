@@ -9,6 +9,7 @@
     <!-- stylesheets -->
     = stylesheet_link_tag "reset"
     = stylesheet_link_tag "960"
+    = stylesheet_link_tag "kazanie"
     = yield :stylesheets
 
     <!-- javascripts -->
@@ -25,10 +26,11 @@
       = render "shared/header"
 
     #body
-      %p.notice= notice
-      %p.alert= alert
+      .container_16
+        .notice= notice
+        .alert= alert
 
-      = yield
+        = yield
 
     #footer
       = render "shared/footer"

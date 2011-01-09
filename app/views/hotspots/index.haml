@@ -1,6 +1,11 @@
 .h1= "#{@project.title} - #{@work.title}"
 .h2 Hotspots
 
+- content_for :javascripts do
+  :javascript
+    var w = new Backbone.Model(#{@work.to_json});
+    console.log(w);
+
 .image
   = image_tag(@work.image.process(:resize, "900x900>").url)
   .hotspots
