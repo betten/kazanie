@@ -1,4 +1,4 @@
-= form_for @masterpiece do |f|
+= form_for @masterpiece, :html => {:multipart => true} do |f|
   -if @masterpiece.errors.any?
     #error_explanation
       %h2= "#{pluralize(@masterpiece.errors.count, "error")} prohibited this masterpiece from being saved:"
@@ -7,11 +7,8 @@
           %li= msg
 
   .field
-    = f.label :user
-    = f.text_field :user
-  .field
-    = f.label :image_uid
-    = f.text_field :image_uid
+    = f.label :image
+    = f.file_field :image
   .field
     = f.label :title
     = f.text_field :title
@@ -19,4 +16,4 @@
     = f.label :description
     = f.text_area :description
   .actions
-    = f.submit 'Save'
+    = f.submit 'create masterpiece'
