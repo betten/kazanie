@@ -1,6 +1,0 @@
-.projects
-  - @projects.each do |project|
-    .project= link_to project.title, project
-
-- if can? :create, Project
-  = link_to 'create new project', new_project_path
