@@ -4,9 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :trackable, :validatable
 
-  has_many :projects
-  has_many :works
-  has_many :hotspots
+  has_many :masterpieces
+  has_many :focals
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation
