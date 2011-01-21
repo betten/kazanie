@@ -1,0 +1,2 @@
+class Croppal < Focal
+end

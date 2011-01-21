@@ -1,0 +1,37 @@
+= form_for @croppal do |f|
+  -if @croppal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@croppal.errors.count, "error")} prohibited this croppal from being saved:"
+      %ul
+        - @croppal.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :ctop
+    = f.text_field :ctop
+  .field
+    = f.label :cleft
+    = f.text_field :cleft
+  .field
+    = f.label :cheight
+    = f.text_field :cheight
+  .field
+    = f.label :cwidth
+    = f.text_field :cwidth
+  .field
+    = f.label :top
+    = f.text_field :top
+  .field
+    = f.label :left
+    = f.text_field :left
+  .field
+    = f.label :height
+    = f.text_field :height
+  .field
+    = f.label :width
+    = f.text_field :width
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

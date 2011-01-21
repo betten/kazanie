@@ -1,0 +1,29 @@
+%h1 Listing imageals
+
+%table
+  %tr
+    %th Image uid
+    %th Top
+    %th Left
+    %th Height
+    %th Width
+    %th Description
+    %th
+    %th
+    %th
+
+  - @imageals.each do |imageal|
+    %tr
+      %td= imageal.image_uid
+      %td= imageal.top
+      %td= imageal.left
+      %td= imageal.height
+      %td= imageal.width
+      %td= imageal.description
+      %td= link_to 'Show', imageal
+      %td= link_to 'Edit', edit_imageal_path(imageal)
+      %td= link_to 'Destroy', imageal, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Imageal', new_imageal_path

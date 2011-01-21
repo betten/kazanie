@@ -1,13 +1,17 @@
 Kazanie::Application.routes.draw do
+  resources :textals
+
+  resources :croppals
+
+  resources :imageals
+
+  resources :masterpieces
+
   devise_for :users
 
-  resources :projects do
+  resources :masterpieces do
 
-    resources :works do
-
-      resources :hotspots do
-
-      end
+    resources :focals do
 
     end
 

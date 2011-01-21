@@ -1,0 +1,2 @@
+module ImagealsHelper
+end

@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Image uid:
+  = @imageal.image_uid
+%p
+  %b Top:
+  = @imageal.top
+%p
+  %b Left:
+  = @imageal.left
+%p
+  %b Height:
+  = @imageal.height
+%p
+  %b Width:
+  = @imageal.width
+%p
+  %b Description:
+  = @imageal.description
+
+= link_to 'Edit', edit_imageal_path(@imageal)
+\|
+= link_to 'Back', imageals_path

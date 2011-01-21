@@ -1,0 +1,2 @@
+class Textal < Focal
+end

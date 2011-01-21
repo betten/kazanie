@@ -1,0 +1,28 @@
+= form_for @imageal do |f|
+  -if @imageal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@imageal.errors.count, "error")} prohibited this imageal from being saved:"
+      %ul
+        - @imageal.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :image_uid
+    = f.text_field :image_uid
+  .field
+    = f.label :top
+    = f.text_field :top
+  .field
+    = f.label :left
+    = f.text_field :left
+  .field
+    = f.label :height
+    = f.text_field :height
+  .field
+    = f.label :width
+    = f.text_field :width
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'

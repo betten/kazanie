@@ -1,0 +1,2 @@
+class Imageal < Focal
+end

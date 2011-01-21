@@ -10,24 +10,59 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110108165837) do
+ActiveRecord::Schema.define(:version => 20110121031119) do
 
-  create_table "hotspots", :force => true do |t|
-    t.integer  "work_id"
-    t.integer  "user_id"
-    t.string   "image_uid"
-    t.string   "cx"
-    t.string   "cy"
-    t.string   "radius"
-    t.string   "title"
-    t.text     "text"
+  create_table "croppals", :force => true do |t|
+    t.string   "ctop"
+    t.string   "cleft"
+    t.string   "cheight"
+    t.string   "cwidth"
+    t.string   "top"
+    t.string   "left"
+    t.string   "height"
+    t.string   "width"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "projects", :force => true do |t|
+  create_table "focals", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "masterpiece_id"
+    t.string   "cx"
+    t.string   "cy"
+    t.string   "radius"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "imageals", :force => true do |t|
+    t.string   "image_uid"
+    t.string   "top"
+    t.string   "left"
+    t.string   "height"
+    t.string   "width"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "masterpieces", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "image_uid"
     t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "textals", :force => true do |t|
+    t.string   "top"
+    t.string   "left"
+    t.string   "height"
+    t.string   "width"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,15 +82,5 @@ ActiveRecord::Schema.define(:version => 20110108165837) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-
-  create_table "works", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.string   "image_uid"
-    t.string   "title"
-    t.text     "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

@@ -1,0 +1,35 @@
+%h1 Listing croppals
+
+%table
+  %tr
+    %th Ctop
+    %th Cleft
+    %th Cheight
+    %th Cwidth
+    %th Top
+    %th Left
+    %th Height
+    %th Width
+    %th Description
+    %th
+    %th
+    %th
+
+  - @croppals.each do |croppal|
+    %tr
+      %td= croppal.ctop
+      %td= croppal.cleft
+      %td= croppal.cheight
+      %td= croppal.cwidth
+      %td= croppal.top
+      %td= croppal.left
+      %td= croppal.height
+      %td= croppal.width
+      %td= croppal.description
+      %td= link_to 'Show', croppal
+      %td= link_to 'Edit', edit_croppal_path(croppal)
+      %td= link_to 'Destroy', croppal, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Croppal', new_croppal_path

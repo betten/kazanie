@@ -1,0 +1,22 @@
+= form_for @masterpiece do |f|
+  -if @masterpiece.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@masterpiece.errors.count, "error")} prohibited this masterpiece from being saved:"
+      %ul
+        - @masterpiece.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :image_uid
+    = f.text_field :image_uid
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions
+    = f.submit 'Save'
