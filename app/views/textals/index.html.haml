@@ -2,22 +2,28 @@
 
 %table
   %tr
-    %th Top
-    %th Left
-    %th Height
-    %th Width
-    %th Text
+    %th User
+    %th Masterpiece
+    %th Type
+    %th Cx
+    %th Cy
+    %th Radius
+    %th Color
+    %th Description
     %th
     %th
     %th
 
   - @textals.each do |textal|
     %tr
-      %td= textal.top
-      %td= textal.left
-      %td= textal.height
-      %td= textal.width
-      %td= textal.text
+      %td= textal.user
+      %td= textal.masterpiece
+      %td= textal.type
+      %td= textal.cx
+      %td= textal.cy
+      %td= textal.radius
+      %td= textal.color
+      %td= textal.description
       %td= link_to 'Show', textal
       %td= link_to 'Edit', edit_textal_path(textal)
       %td= link_to 'Destroy', textal, :confirm => 'Are you sure?', :method => :delete

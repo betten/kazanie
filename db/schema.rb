@@ -10,34 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110121031119) do
-
-  create_table "croppals", :force => true do |t|
-    t.string   "ctop"
-    t.string   "cleft"
-    t.string   "cheight"
-    t.string   "cwidth"
-    t.string   "top"
-    t.string   "left"
-    t.string   "height"
-    t.string   "width"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110121125929) do
 
   create_table "focals", :force => true do |t|
     t.integer  "user_id"
     t.integer  "masterpiece_id"
+    t.string   "type"
     t.string   "cx"
     t.string   "cy"
     t.string   "radius"
     t.string   "color"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "imageals", :force => true do |t|
     t.string   "image_uid"
     t.string   "top"
     t.string   "left"
@@ -53,16 +35,6 @@ ActiveRecord::Schema.define(:version => 20110121031119) do
     t.string   "image_uid"
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "textals", :force => true do |t|
-    t.string   "top"
-    t.string   "left"
-    t.string   "height"
-    t.string   "width"
-    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

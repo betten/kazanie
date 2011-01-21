@@ -13,6 +13,9 @@
     = f.label :masterpiece
     = f.text_field :masterpiece
   .field
+    = f.label :type
+    = f.text_field :type
+  .field
     = f.label :cx
     = f.text_field :cx
   .field
@@ -24,5 +27,23 @@
   .field
     = f.label :color
     = f.text_field :color
+  .field
+    = f.label :image_uid
+    = f.text_field :image_uid
+  .field
+    = f.label :top
+    = f.text_field :top
+  .field
+    = f.label :left
+    = f.text_field :left
+  .field
+    = f.label :height
+    = f.text_field :height
+  .field
+    = f.label :width
+    = f.text_field :width
+  .field
+    = f.label :description
+    = f.text_area :description
   .actions
     = f.submit 'Save'

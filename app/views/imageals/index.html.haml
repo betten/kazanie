@@ -2,6 +2,13 @@
 
 %table
   %tr
+    %th User
+    %th Masterpiece
+    %th Type
+    %th Cx
+    %th Cy
+    %th Radius
+    %th Color
     %th Image uid
     %th Top
     %th Left
@@ -14,6 +21,13 @@
 
   - @imageals.each do |imageal|
     %tr
+      %td= imageal.user
+      %td= imageal.masterpiece
+      %td= imageal.type
+      %td= imageal.cx
+      %td= imageal.cy
+      %td= imageal.radius
+      %td= imageal.color
       %td= imageal.image_uid
       %td= imageal.top
       %td= imageal.left

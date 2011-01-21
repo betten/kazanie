@@ -2,10 +2,13 @@
 
 %table
   %tr
-    %th Ctop
-    %th Cleft
-    %th Cheight
-    %th Cwidth
+    %th User
+    %th Masterpiece
+    %th Type
+    %th Cx
+    %th Cy
+    %th Radius
+    %th Color
     %th Top
     %th Left
     %th Height
@@ -17,10 +20,13 @@
 
   - @croppals.each do |croppal|
     %tr
-      %td= croppal.ctop
-      %td= croppal.cleft
-      %td= croppal.cheight
-      %td= croppal.cwidth
+      %td= croppal.user
+      %td= croppal.masterpiece
+      %td= croppal.type
+      %td= croppal.cx
+      %td= croppal.cy
+      %td= croppal.radius
+      %td= croppal.color
       %td= croppal.top
       %td= croppal.left
       %td= croppal.height

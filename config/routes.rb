@@ -1,4 +1,12 @@
 Kazanie::Application.routes.draw do
+  resources :croppals
+
+  resources :textals
+
+  resources :imageals
+
+  resources :focals
+
   devise_for :users
 
   resources :masterpieces do

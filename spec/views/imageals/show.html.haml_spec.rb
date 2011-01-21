@@ -3,6 +3,13 @@ require 'spec_helper'
 describe "imageals/show.html.haml" do
   before(:each) do
     @imageal = assign(:imageal, stub_model(Imageal,
+      :user => nil,
+      :masterpiece => nil,
+      :type => "Type",
+      :cx => "Cx",
+      :cy => "Cy",
+      :radius => "Radius",
+      :color => "Color",
       :image_uid => "Image Uid",
       :top => "Top",
       :left => "Left",
@@ -14,6 +21,20 @@ describe "imageals/show.html.haml" do
 
   it "renders attributes in <p>" do
     render
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(//)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(//)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Type/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Cx/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Cy/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Radius/)
+    # Run the generator again with the --webrat flag if you want to use webrat matchers
+    rendered.should match(/Color/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/Image Uid/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
