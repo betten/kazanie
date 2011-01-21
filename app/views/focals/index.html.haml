@@ -1,0 +1,29 @@
+%h1 Listing focals
+
+%table
+  %tr
+    %th User
+    %th Masterpiece
+    %th Cx
+    %th Cy
+    %th Radius
+    %th Color
+    %th
+    %th
+    %th
+
+  - @focals.each do |focal|
+    %tr
+      %td= focal.user
+      %td= focal.masterpiece
+      %td= focal.cx
+      %td= focal.cy
+      %td= focal.radius
+      %td= focal.color
+      %td= link_to 'Show', focal
+      %td= link_to 'Edit', edit_focal_path(focal)
+      %td= link_to 'Destroy', focal, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Focal', new_focal_path

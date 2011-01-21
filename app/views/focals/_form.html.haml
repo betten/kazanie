@@ -1,0 +1,28 @@
+= form_for @focal do |f|
+  -if @focal.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@focal.errors.count, "error")} prohibited this focal from being saved:"
+      %ul
+        - @focal.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user
+    = f.text_field :user
+  .field
+    = f.label :masterpiece
+    = f.text_field :masterpiece
+  .field
+    = f.label :cx
+    = f.text_field :cx
+  .field
+    = f.label :cy
+    = f.text_field :cy
+  .field
+    = f.label :radius
+    = f.text_field :radius
+  .field
+    = f.label :color
+    = f.text_field :color
+  .actions
+    = f.submit 'Save'

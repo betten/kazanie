@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @focal.user
+%p
+  %b Masterpiece:
+  = @focal.masterpiece
+%p
+  %b Cx:
+  = @focal.cx
+%p
+  %b Cy:
+  = @focal.cy
+%p
+  %b Radius:
+  = @focal.radius
+%p
+  %b Color:
+  = @focal.color
+
+= link_to 'Edit', edit_focal_path(@focal)
+\|
+= link_to 'Back', focals_path
