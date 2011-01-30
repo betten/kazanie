@@ -1,0 +1,105 @@
+<html>
+<head>
+  <script type="text/javascript" src="lib/jquery-min.js"></script>
+  <script type="text/javascript" src="lib/underscore-min.js"></script>
+  <script type="text/javascript" src="lib/backbone-min.js"></script>
+  <script type="text/javascript" src="lib/icanhaz-min.js"></script>
+  <script type="text/javascript">
+
+var Focal = Backbone.Model.extend({
+  defaults: {
+    height: 0,
+    image: {
+      height: 0,
+      url: '',
+      width: 0
+    },
+    masterpiece: null,
+    text: '',
+    width: 0,
+    x: 0,
+    y: 0
+  }
+});
+
+var FocalCollection = Backbone.Collection.extend({
+  model: Focal
+});
+
+var FocalView = Backbone.View.extend({
+  render: function() {
+    this.el = ich.focal(this.modal.toJSON());
+  }
+});
+
+var Masterpiece = Backbone.Model.extend({
+  defaults: {
+    focals: new FocalCollection,
+    height: 0,
+    text: '',
+    title: '',
+    url: '',
+    width: 0
+  }
+});
+
+var MasterpieceCollection = Backbone.Collection.extend({
+  model: Masterpiece
+});
+
+var MasterpieceView = Backbone.View.extend({
+  render: function() {
+    debugger;
+    this.el = ich.masterpieceview(this.model.toJSON());
+    $('#masterpiece').html(this.el);
+    this.model.focals.each(function(focal) {
+      $('#masterpiece').append(
+        new FocalView({ modal: focal }).render().el
+      );
+    });
+    return this;
+  },
+  thumb: function() {
+    // this.el = ...
+    return this;
+  }
+});
+
+var skargi = new Masterpiece({
+  height: 300,
+  text: 'skargi text goes here',
+  title: 'Kazanie Skargi',
+  url: 'skargi.jpg',
+  width: 300,
+  focals: new FocalCollection([
+    new Focal({
+
+    }),
+    new Focal({
+
+    }),
+    new Focal({
+
+    })
+  ])
+});
+
+var masterpieces = new MasterpieceCollection([
+  skargi
+]);
+
+$(document).ready(function() {
+  masterpieces.each(function(masterpiece) {
+    new MasterpieceView({ model: masterpiece }).add();
+  });
+});
+  </script>
+
+</head>
+<body>
+  <div id="header"></div>
+  <div id="masterpiece"></div>
+  <div id="sider"></div>
+  <div id="thumbs"></div>
+</body>
+</html>
