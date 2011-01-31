@@ -41,6 +41,10 @@
   </div>
 </script>
 
+<script id="focal-view" type="text/html">
+  
+</script>
+
 <script type="text/javascript">
 
 var Focal = Backbone.Model.extend({
@@ -90,10 +94,12 @@ var skargi = new Masterpiece({
   width: 2259,
   focals: new FocalCollection([
     new Focal({
-
+      x: 50,
+      y: 50
     }),
     new Focal({
-
+      x: 200,
+      y: 200
     }),
     new Focal({
 
@@ -202,6 +208,12 @@ var MasterpieceView = Backbone.View.extend({
   render: function() {
     this.adjustDims();
     this.el.html(ich['masterpiece-view'](this.model.toJSON()));
+
+    this.$('.focal').remove();
+    var masterpiece = this.model;
+    masterpiece.get('focals').each(function(focal) {
+      new FocalView({ model: focal, masterpiece: masterpiece }).render();
+    });
   },
   adjustDims: function() {
     var model = this.model;
@@ -225,6 +237,23 @@ var MasterpieceView = Backbone.View.extend({
         'adjheight': Math.floor($(window).width() / width * adjheight)
       });
     }
+  }
+});
+
+var FocalView = Backbone.View.extend({
+  className: 'focal',
+  events: {
+
+  },
+  initialize: function(options) {
+    this.masterpiece = options.masterpiece;
+  },
+  render: function() {
+    $('#masterpiece-image').append(this.el);
+    $(this.el).css({
+      top: Math.round(this.masterpiece.get('adjheight') / this.masterpiece.get('height') * this.model.get('y')) + 'px',
+      left: Math.round(this.masterpiece.get('adjwidth') / this.masterpiece.get('width') * this.model.get('x')) + 'px'
+    });
   }
 });
 
