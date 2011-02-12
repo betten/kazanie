@@ -65,12 +65,15 @@ body {
   position: relative;
 }
 
+#focals {
+  border: 1px solid red;
+  height: 100%;
+  width: 100%;
+}
 
-#masterpiece-image .focal {
+#focals .focal {
   background: red;
-  height: 50px;
   position: absolute;
-  width: 50px;
 }
 
 
