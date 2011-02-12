@@ -8,6 +8,7 @@ var Focal = Backbone.Model.extend({
     },
     masterpiece: null,
     text: '',
+    title: '',
     width: 0,
     x: 0,
     y: 0
@@ -31,8 +32,9 @@ var Masterpiece = Backbone.Model.extend({
     text: '',
     title: '',
     url: '',
+    miniurl: '',
     width: 0
-  },
+  }
   
 });
 
