@@ -30,6 +30,8 @@ $(function() {
       masterpiece.get('focals').each(function(focal) {
         new Kazanie.Views.Focal({ model: focal, masterpiece: masterpiece }).render();
       });
+      $('#masterpiece a.fancybox-group').fancybox({
+      });
     },
 
     adjustDims: function() {
@@ -71,6 +73,17 @@ $(function() {
 
     initialize: function(options) {
       this.masterpiece = options.masterpiece;
+
+      var focal = this;
+      this.model.bind('over', function() {
+        focal.over();
+      });
+      this.model.bind('out', function() {
+        focal.out();
+      });
+      this.model.bind('focus', function() {
+        $(focal.el).click();
+      });
     },
     
     render: function() {
@@ -90,21 +103,19 @@ $(function() {
         height:   r(hratio * this.model.get('height')) + 'px',
         left:     r(wratio * this.model.get('x')) + 'px',
         width:    r(wratio * this.model.get('width')) + 'px',
-        opacity:  0.2
+        opacity:  0.1
       });
     },
 
     over: function() {
-      $(this.el).stop().animate({ opacity: 0.5 });
+      $(this.el).stop().animate({ opacity: 0.3 });
     },
 
     out: function() {
-      $(this.el).stop().animate({ opacity: 0.2 });
+      $(this.el).stop().animate({ opacity: 0.1 });
     },
 
     focus: function() {
-      $('#masterpiece a.fancybox-group').fancybox({
-      });
       return false;
     }
 
@@ -255,18 +266,31 @@ $(function() {
 
     className: 'focal',
 
+    events: {
+      'mouseenter': 'over',
+      'mouseleave': 'out',
+      'click': 'focus'
+    },
+
     initialize: function() {
       this.render();
     },
 
     render: function() {
-      $(this.el)
-        //.html(ich['focaliderel-view'](this.model.toJSON()))
-        .css({
-          'background-image': 'url(' + (this.model.get('url') || '' )+ ')',
-          opacity: 0.5
-        });
+      $(this.el).text(this.model.get('title'));
       $('#focalider .focals').append(this.el);
+    },
+
+    over: function() {
+      this.model.trigger('over');
+    },
+
+    out: function() {
+      this.model.trigger('out');
+    },
+
+    focus: function() {
+      this.model.trigger('focus');
     }
 
   });
