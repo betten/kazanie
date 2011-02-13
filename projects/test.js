@@ -20,7 +20,7 @@ var skargi = new Masterpiece({
       height: 300,
       width: 200,
       url: 'images/focals/king.png',
-      title: 'Middle Three'
+      title: 'King'
     }),
     new Focal({
       x: 920,
@@ -28,7 +28,15 @@ var skargi = new Masterpiece({
       height: 350,
       width: 500,
       url: 'images/focals/middletrio.png',
-      title: 'King' 
+      title: 'Middle Trio' 
+    }),
+    new Focal({
+      x: 0,
+      y: 0,
+      height: 0,
+      width: 0,
+      url: 'images/focals/middletrio.png',
+      title: 'test' 
     })
   ])
 });
