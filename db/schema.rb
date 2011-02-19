@@ -10,7 +10,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110219033350) do
+ActiveRecord::Schema.define(:version => 20110219150430) do
+
+  create_table "focals", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.integer  "masterpiece_id"
+    t.string   "image_uid"
+    t.string   "height"
+    t.string   "width"
+    t.string   "x"
+    t.string   "y"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "masterpieces", :force => true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.string   "image_uid"
+    t.string   "mini_image_uid"
+    t.string   "height"
+    t.string   "width"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "name"

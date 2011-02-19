@@ -1,0 +1,33 @@
+%h1 Listing admin_focals
+
+%table
+  %tr
+    %th Title
+    %th Text
+    %th Masterpiece
+    %th Image uid
+    %th Height
+    %th Width
+    %th X
+    %th Y
+    %th
+    %th
+    %th
+
+  - @admin_focals.each do |admin_focal|
+    %tr
+      %td= admin_focal.title
+      %td= admin_focal.text
+      %td= admin_focal.masterpiece
+      %td= admin_focal.image_uid
+      %td= admin_focal.height
+      %td= admin_focal.width
+      %td= admin_focal.x
+      %td= admin_focal.y
+      %td= link_to 'Show', admin_focal
+      %td= link_to 'Edit', edit_admin_focal_path(admin_focal)
+      %td= link_to 'Destroy', admin_focal, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Focal', new_admin_focal_path

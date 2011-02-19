@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @admin_masterpiece.title
+%p
+  %b Text:
+  = @admin_masterpiece.text
+%p
+  %b Image uid:
+  = @admin_masterpiece.image_uid
+%p
+  %b Mini image uid:
+  = @admin_masterpiece.mini_image_uid
+%p
+  %b Height:
+  = @admin_masterpiece.height
+%p
+  %b Width:
+  = @admin_masterpiece.width
+
+= link_to 'Edit', edit_admin_masterpiece_path(@admin_masterpiece)
+\|
+= link_to 'Back', admin_masterpieces_path

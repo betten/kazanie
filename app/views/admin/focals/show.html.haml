@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @admin_focal.title
+%p
+  %b Text:
+  = @admin_focal.text
+%p
+  %b Masterpiece:
+  = @admin_focal.masterpiece
+%p
+  %b Image uid:
+  = @admin_focal.image_uid
+%p
+  %b Height:
+  = @admin_focal.height
+%p
+  %b Width:
+  = @admin_focal.width
+%p
+  %b X:
+  = @admin_focal.x
+%p
+  %b Y:
+  = @admin_focal.y
+
+= link_to 'Edit', edit_admin_focal_path(@admin_focal)
+\|
+= link_to 'Back', admin_focals_path

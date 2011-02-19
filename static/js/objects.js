@@ -1,11 +1,7 @@
 var Focal = Backbone.Model.extend({
   defaults: {
     height: 0,
-    image: {
-      height: 0,
-      url: '',
-      width: 0
-    },
+    url: '',
     masterpiece: null,
     text: '',
     title: '',
