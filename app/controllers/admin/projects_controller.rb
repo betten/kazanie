@@ -44,6 +44,7 @@ class Admin::ProjectsController < ApplicationController
   # POST /admin/projects.xml
   def create
     @project = Project.new(params[:project])
+    @project.user = current_user
 
     respond_to do |format|
       if @project.save

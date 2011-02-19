@@ -1,9 +1,9 @@
-= form_for @admin_masterpiece do |f|
-  -if @admin_masterpiece.errors.any?
+= form_for [:admin, @project, @masterpiece], :html => {:multipart => true} do |f|
+  -if @masterpiece.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@admin_masterpiece.errors.count, "error")} prohibited this admin_masterpiece from being saved:"
+      %h2= "#{pluralize(@masterpiece.errors.count, "error")} prohibited this masterpiece from being saved:"
       %ul
-        - @admin_masterpiece.errors.full_messages.each do |msg|
+        - @masterpiece.errors.full_messages.each do |msg|
           %li= msg
 
   .field
@@ -11,18 +11,9 @@
     = f.text_field :title
   .field
     = f.label :text
-    = f.text_field :text
+    = f.text_area :text
   .field
-    = f.label :image_uid
-    = f.text_field :image_uid
-  .field
-    = f.label :mini_image_uid
-    = f.text_field :mini_image_uid
-  .field
-    = f.label :height
-    = f.text_field :height
-  .field
-    = f.label :width
-    = f.text_field :width
+    = f.label :image_uid, 'Image'
+    = f.file_field :image
   .actions
     = f.submit 'Save'

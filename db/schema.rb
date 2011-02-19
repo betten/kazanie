@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20110219150430) do
     t.string   "mini_image_uid"
     t.string   "height"
     t.string   "width"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

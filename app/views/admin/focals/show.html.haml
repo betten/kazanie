@@ -2,29 +2,29 @@
 
 %p
   %b Title:
-  = @admin_focal.title
+  = @focal.title
 %p
   %b Text:
-  = @admin_focal.text
+  = @focal.text
 %p
   %b Masterpiece:
-  = @admin_focal.masterpiece
+  = @focal.masterpiece
 %p
   %b Image uid:
-  = @admin_focal.image_uid
+  = @focal.image_uid
 %p
   %b Height:
-  = @admin_focal.height
+  = @focal.height
 %p
   %b Width:
-  = @admin_focal.width
+  = @focal.width
 %p
   %b X:
-  = @admin_focal.x
+  = @focal.x
 %p
   %b Y:
-  = @admin_focal.y
+  = @focal.y
 
-= link_to 'Edit', edit_admin_focal_path(@admin_focal)
+= link_to 'Edit', edit_admin_project_masterpiece_focal_path(@project, @masterpiece, @focal)
 \|
-= link_to 'Back', admin_focals_path
+= link_to 'Back', [:admin, @project, @masterpiece]

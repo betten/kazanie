@@ -2,23 +2,49 @@
 
 %p
   %b Title:
-  = @admin_masterpiece.title
+  = @masterpiece.title
 %p
   %b Text:
-  = @admin_masterpiece.text
+  = @masterpiece.text
 %p
   %b Image uid:
-  = @admin_masterpiece.image_uid
-%p
-  %b Mini image uid:
-  = @admin_masterpiece.mini_image_uid
-%p
-  %b Height:
-  = @admin_masterpiece.height
-%p
-  %b Width:
-  = @admin_masterpiece.width
+  = @masterpiece.image_uid
 
-= link_to 'Edit', edit_admin_masterpiece_path(@admin_masterpiece)
+
+%h1 Listing Focals
+
+%table
+  %tr
+    %th Title
+    %th Text
+    %th Masterpiece
+    %th Image uid
+    %th Height
+    %th Width
+    %th X
+    %th Y
+    %th
+    %th
+    %th
+
+  - @masterpiece.focals.each do |focal|
+    %tr
+      %td= focal.title
+      %td= focal.text
+      %td= focal.masterpiece
+      %td= focal.image_uid
+      %td= focal.height
+      %td= focal.width
+      %td= focal.x
+      %td= focal.y
+      %td= link_to 'Show', [:admin, @project, @masterpiece, focal]
+      %td= link_to 'Edit', edit_admin_project_masterpiece_focal_path(@masterpiece.project, @masterpiece, focal)
+      %td= link_to 'Destroy', [:admin, @project, @masterpiece, focal], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Focal', new_admin_project_masterpiece_focal_path(@project, @masterpiece)
 \|
-= link_to 'Back', admin_masterpieces_path
+= link_to 'Edit', edit_admin_project_masterpiece_path(@project, @masterpiece)
+\|
+= link_to 'Back', [:admin, @project]

@@ -1,7 +1,7 @@
-%h1 Editing admin_masterpiece
+%h1 Editing Masterpiece
 
 = render 'form'
 
-= link_to 'Show', @admin_masterpiece
+= link_to 'Show', [:admin, @project, @masterpiece]
 \|
-= link_to 'Back', admin_masterpieces_path
+= link_to 'Back', [:admin, @project]

@@ -4,10 +4,14 @@ Kazanie::Application.routes.draw do
 
   resources :projects, :only => [:index, :show]
 
+  match "admin/projects/:id/masterpieces" => "admin/projects#show", :via => "get"
+  match "admin/projects/:project_id/masterpieces/:id/focals" => "admin/masterpieces#show", :via => "get"
+
   namespace :admin do
     resources :projects do
-      resources :masterpieces
-      resources :focals
+      resources :masterpieces, :except => [:index] do
+        resources :focals, :except => [:index]
+      end
     end
   end
 

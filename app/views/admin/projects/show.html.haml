@@ -4,6 +4,30 @@
   %b Name:
   = @project.name
 
-= link_to 'Edit', edit_admin_project_path(@project)
+%h1 Listing Masterpieces
+
+%table
+  %tr
+    %th Title
+    %th Text
+    %th Image uid
+    %th
+    %th
+    %th
+
+  - @project.masterpieces.each do |masterpiece|
+    %tr
+      %td= masterpiece.title
+      %td= masterpiece.text
+      %td= masterpiece.image_uid
+      %td= link_to 'Show', [:admin, @project, masterpiece]
+      %td= link_to 'Edit', edit_admin_project_masterpiece_path(@project, masterpiece)
+      %td= link_to 'Destroy', [:admin, @project, masterpiece], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Masterpiece', new_admin_project_masterpiece_path(@project)
+\|
+= link_to 'Edit Project', edit_admin_project_path(@project)
 \|
 = link_to 'Back', admin_projects_path

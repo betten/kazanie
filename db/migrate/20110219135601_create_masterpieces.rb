@@ -4,9 +4,6 @@ class CreateMasterpieces < ActiveRecord::Migration
       t.string :title
       t.text :text
       t.string :image_uid
-      t.string :mini_image_uid
-      t.string :height
-      t.string :width
       t.references :project
 
       t.timestamps
