@@ -7,6 +7,7 @@ class CreateMasterpieces < ActiveRecord::Migration
       t.string :mini_image_uid
       t.string :height
       t.string :width
+      t.references :project
 
       t.timestamps
     end

@@ -1,4 +1,7 @@
 class Admin::FocalsController < ApplicationController
+
+  before_filter :authenticate_user!
+
   # GET /admin/focals
   # GET /admin/focals.xml
   def index

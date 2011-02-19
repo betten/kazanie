@@ -1,4 +1,7 @@
 class Admin::MasterpiecesController < ApplicationController
+
+  before_filter :authenticate_user!
+
   # GET /admin/masterpieces
   # GET /admin/masterpieces.xml
   def index
