@@ -1,9 +1,12 @@
 Kazanie::Application.routes.draw do
-  get "project/index"
-
-  get "project/show"
 
   devise_for :users
+
+  resources :project, :only => [:index, :show]
+
+  namespace :admin do
+    resources :project
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -54,7 +57,7 @@ Kazanie::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "project#index"
 
   # See how all your routes lay out with "rake routes"
 
