@@ -1,4 +1,4 @@
-%h1 Listing admin_projects
+%h1 Listing Projects
 
 %table
   %tr
@@ -7,12 +7,12 @@
     %th
     %th
 
-  - @admin_projects.each do |admin_project|
+  - @projects.each do |project|
     %tr
-      %td= admin_project.name
-      %td= link_to 'Show', admin_project
-      %td= link_to 'Edit', edit_admin_project_path(admin_project)
-      %td= link_to 'Destroy', admin_project, :confirm => 'Are you sure?', :method => :delete
+      %td= project.name
+      %td= link_to 'Show', [:admin, project]
+      %td= link_to 'Edit', edit_admin_project_path(project)
+      %td= link_to 'Destroy', [:admin, project], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
