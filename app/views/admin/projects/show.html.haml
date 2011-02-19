@@ -1,16 +1,20 @@
-%p#notice= notice
+%h1 Project
 
 %p
   %b Name:
   = @project.name
 
-%h1 Listing Masterpieces
+= link_to 'edit project', edit_admin_project_path(@project)
+\|
+= link_to 'all projects', admin_projects_path
+
+%h1 Masterpieces
 
 %table
   %tr
     %th Title
     %th Text
-    %th Image uid
+    %th Image
     %th
     %th
     %th
@@ -19,15 +23,11 @@
     %tr
       %td= masterpiece.title
       %td= masterpiece.text
-      %td= masterpiece.image_uid
-      %td= link_to 'Show', [:admin, @project, masterpiece]
-      %td= link_to 'Edit', edit_admin_project_masterpiece_path(@project, masterpiece)
-      %td= link_to 'Destroy', [:admin, @project, masterpiece], :confirm => 'Are you sure?', :method => :delete
+      %td= image_tag masterpiece.image.thumb("100x100#").url
+      %td= link_to 'view', [:admin, @project, masterpiece]
+      %td= link_to 'edit', edit_admin_project_masterpiece_path(@project, masterpiece)
+      %td= link_to 'delete', [:admin, @project, masterpiece], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New Masterpiece', new_admin_project_masterpiece_path(@project)
-\|
-= link_to 'Edit Project', edit_admin_project_path(@project)
-\|
-= link_to 'Back', admin_projects_path
+= link_to 'new masterpiece', new_admin_project_masterpiece_path(@project)
