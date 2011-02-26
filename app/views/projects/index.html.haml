@@ -1,2 +1,7 @@
-%h1 Projects#index
-%p Find me in app/views/projects/index.html.haml
+%h1 Projects
+
+#projects
+  - @projects.each do |project|
+    .project
+      -#.thumb= image_tag project.thumb
+      .name= link_to project.name, project

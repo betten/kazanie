@@ -126,6 +126,10 @@ body {
   letter-spacing: 10px;
   text-align: center;
 }
+#focalider .kazanie a {
+  color: #fff;
+  text-decoration: none;
+}
 #focalider .title {
   margin-top: 2px;
   padding-bottom: 4px;
