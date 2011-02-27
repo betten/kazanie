@@ -1,7 +1,11 @@
 <script type="text/javascript">
-  var masterpieces = new Kazanie.Collections.Masterpieces([
+(function(window) {
+  var Kazanie = window.Kazanie || {};
+
+  Kazanie.Masterpieces = new Kazanie.Collections.Masterpieces([
     <% project.masterpieces.each do |masterpiece| %>
     new Kazanie.Models.Masterpiece({
+      id:       "<%= masterpiece.id %>",
       height:   <%= masterpiece.image.height %>,
       title:    "<%= sanitize masterpiece.title %>",
       text:     "<%= sanitize masterpiece.text %>",
@@ -11,6 +15,7 @@
       focals:   new Kazanie.Collections.Focals([
         <% masterpiece.focals.each do |focal| %>
         new Kazanie.Models.Focal({
+          id:       "<%= focal.id %>",
           x:        <%= focal.x %>,
           y:        <%= focal.y %>,
           height:   <%= focal.height %>,
@@ -24,4 +29,6 @@
     }),
     <% end %>
   ]);
+
+})(window);
 </script>

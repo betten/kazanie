@@ -31,7 +31,14 @@ $(function() {
         new Kazanie.Views.Focal({ model: focal, masterpiece: masterpiece }).render();
       });
       $('#masterpiece a.fancybox-group').fancybox({
+        'onComplete': function() {
+          $(this.orig).trigger('focus');
+        },
+        'onClosed': function() {
+          $(this.orig).trigger('unfocus');
+        }
       });
+      Kazanie.Controller.saveLocation('masterpiece/' + this.model.get('id'));
     },
 
     adjustDims: function() {
@@ -68,7 +75,9 @@ $(function() {
     events: {
       'mouseenter': 'over',
       'mouseleave': 'out',
-      'click': 'focus'
+      'click': 'focus',
+      'focus': 'focus',
+      'unfocus': 'unfocus'
     },
 
     initialize: function(options) {
@@ -116,7 +125,16 @@ $(function() {
     },
 
     focus: function() {
+      Kazanie.Controller.saveLocation(
+        'masterpiece/' + this.masterpiece.id + '/focal/' + this.model.id
+      );
       return false;
+    },
+
+    unfocus: function() {
+      Kazanie.Controller.saveLocation(
+        'masterpiece/' + this.masterpiece.id
+      );
     }
 
   });
@@ -200,12 +218,16 @@ $(function() {
     events: {
       'mouseenter': 'over',
       'mouseleave' : 'out',
-      'click': 'click'
+      'click': 'select'
     },
 
     render: function() {
       $(this.el).html(ich['mini-masterpiece-view'](this.model.toJSON()));
       $('#minis').append(this.el);
+      var mini = this;
+      this.model.bind('select', function() {
+        mini.select();
+      });
     },
     
     over: function(event) {
@@ -218,7 +240,7 @@ $(function() {
       $(this.el).animate({ opacity: 0.5 });
     },
 
-    click: function() {
+    select: function() {
       new Kazanie.Views.Masterpiece({ model: this.model});
       new Kazanie.Views.Sider({ model: this.model });
       new Kazanie.Views.Focalider({ model: this.model });
@@ -236,7 +258,6 @@ $(function() {
     },
 
     initialize: function() {
-      console.log(this.model);
       this.render();
     },
 
@@ -303,14 +324,45 @@ $(function() {
     initialize: function(options) {
       this.masterpieces = this.options.masterpieces;
       new Kazanie.Views.Slider({ masterpieces: this.masterpieces });
-      $('#slider .mini').first().click();
+      Backbone.history.start();
     }
 
   });
 
+  Kazanie.Controller = new (function() {
+    return Backbone.Controller.extend({
+      routes: {
+        '': 'root',
+        'masterpiece/:id': 'masterpiece',
+        'masterpiece/:masterpiece_id/focal/:id': 'focal'
+      },
+
+      root: function() {
+        Kazanie.Masterpieces.first().trigger('select');
+      },
+
+      masterpiece: function(id) {
+        (Kazanie.Masterpieces.get(id) || Kazanie.Masterpieces.first()).trigger('select');
+      },
+
+      focal: function(masterpiece_id, id) {
+        var masterpiece = Kazanie.Masterpieces.get(masterpiece_id);
+        if(!masterpiece) {
+          Kazanie.Masterpieces.first().trigger('select');
+          return;
+        }
+        masterpiece.trigger('select');
+        var focal = masterpiece.get('focals').get(id);
+        if(!focal) return;
+        focal.trigger('focus');
+      }
+
+    });
+  }());
 
 
-  new Kazanie.Views.Project({ masterpieces: masterpieces });
+
+  new Kazanie.Views.Project({ masterpieces: Kazanie.Masterpieces });
 
 
 }); 
