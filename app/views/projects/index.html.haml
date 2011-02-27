@@ -1,14 +1,29 @@
-.h1 Projects
-
-#projects.table
-  .records
-    - @projects.each do |project|
-      .record
-        .grid_16.name= link_to project.name, project
+.grid_8
+  .h1 Projects
+  #projects.table
+    .records
+      - @projects.each do |project|
+        .record
+          .name= link_to project.name, project
+          .clear
+          .subrecords
+            .thumbs
+              - project.masterpieces.each do |masterpiece|
+                = image_tag masterpiece.image.thumb("30x30#").url
+            .count= "(#{project.masterpieces.count} masterpieces)"
         .clear
-        .subrecords.grid_16
-          .thumbs
-            - project.masterpieces.each do |masterpiece|
-              = image_tag masterpiece.image.thumb("30x30#").url
-          .count= "(#{project.masterpieces.count} masterpieces)"
-      .clear
+
+.grid_8
+  .h1 Welcome to Kazanie
+  %div
+    Kazanie is a project dedicated to bringing artstic masterpieces into the digital age.
+  %br
+  %div
+    Users can create and edit projects. A project is made up of masterpieces. A masterpiece is made up of focals. Each focal adds detail to a masterpiece. Each masterpiece adds another layer to the project. And each project allows users to tell the story behind great works of art. 
+  %br
+  %div
+    View the projects on the left.
+    = link_to 'sign up', new_user_registration_path
+    or
+    = link_to 'sign in', new_user_session_path
+    to develop your own project.

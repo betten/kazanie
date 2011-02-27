@@ -10,6 +10,8 @@ gem 'devise'
 gem 'haml-rails'
 gem 'dragonfly', '~>0.8.1'
 gem 'rack-cache', :require => 'rack/cache'
+gem 'hpricot'
+gem 'ruby_parser'
 
 group :development, :test do 
   gem 'rspec-rails', '~> 2.4'  

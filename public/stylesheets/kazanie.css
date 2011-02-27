@@ -23,7 +23,10 @@ body {
 
 #content {
   margin-top: 20px;
-  margin-bottom: 40px; }
+  margin-bottom: 60px; }
+  #content .notice {
+    color: #006600;
+    font-weight: bold; }
   #content .alert {
     color: red;
     font-weight: bold; }
@@ -67,3 +70,11 @@ body {
 
 #projects .name {
   font-size: 20px; }
+
+#footer {
+  background: black;
+  position: fixed;
+  height: 40px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px; }
