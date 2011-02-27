@@ -1,3 +1,11 @@
+- content_for :javascripts do
+  = javascript_include_tag "lib/jquery-min"
+  = javascript_include_tag "lib/jquery-ui-1.8.10.custom.min"
+  = javascript_include_tag "focals"
+- content_for :stylesheets do
+  = stylesheet_link_tag "focals"
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+
 = form_for [:admin, @project, @masterpiece, @focal], :html => {:multipart => true} do |f|
   -if @focal.errors.any?
     #error_explanation
@@ -13,19 +21,20 @@
     = f.label :text
     = f.text_area :text
   .field
-    = f.label :image, 'Image'
+    = f.label :image, 'Image (leave blank to keep current image)'
     = f.file_field :image
   .field
-    = f.label :height
-    = f.text_field :height
+    = f.label 'Position (click and drag to move/resize)'
+    #masterpiece
+      = image_tag @masterpiece.image.process(:resize, "960x960>").url
+      #focal
+
   .field
-    = f.label :width
-    = f.text_field :width
-  .field
-    = f.label :x
-    = f.text_field :x
-  .field
-    = f.label :y
-    = f.text_field :y
+    %input#actual-height{ :type => "hidden", :value => @masterpiece.image.height }
+    %input#actual-width{ :type => "hidden", :value => @masterpiece.image.width }
+    = f.hidden_field :height
+    = f.hidden_field :width
+    = f.hidden_field :x
+    = f.hidden_field :y
   .actions
     = f.submit 'Save'

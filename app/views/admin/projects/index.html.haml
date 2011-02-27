@@ -1,18 +1,31 @@
-%h1 Projects
+.h1 Projects
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+.table
+  .header
+    .grid_6
+      Name
+  
+  .clear
 
-  - @projects.each do |project|
-    %tr
-      %td= project.name
-      %td= link_to 'view', [:admin, project]
-      %td= link_to 'edit', edit_admin_project_path(project)
-      %td= link_to 'delete', [:admin, project], :confirm => 'Are you sure?', :method => :delete
+  .records
+    - @projects.each do |project|
+      .record
+        .grid_6= project.name
+        .grid_10
+          = link_to 'view', [:admin, project]
+          \/
+          = link_to 'edit', edit_admin_project_path(project)
+          \/
+          = link_to 'delete', [:admin, project], :confirm => 'Are you sure?', :method => :delete
+          \/
+          %a{ :href => project_path(project) } see live &rarr;
+        .clear
+        .subrecords.grid_16
+          .thumbs
+            - project.masterpieces.each do |masterpiece|
+              = image_tag masterpiece.image.thumb("30x30#").url
+          .count= "(#{project.masterpieces.count} masterpieces)"
+      .clear
 
 %br
 

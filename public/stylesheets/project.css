@@ -1,0 +1,151 @@
+body {
+  font-family: arial;
+  overflow: hidden;
+}
+
+#slider {
+  background: #000;
+  bottom: -180px;
+  padding: 6px;
+  position: fixed;
+  width: 100%;
+}
+#slider .slider {
+  width: 100%;
+}
+#slider .slider .button {
+  cursor: pointer;
+  height: 200px;
+  width: 50px;
+}
+#slider .slider .button.left {
+  background: url(img/slider-left.png);
+}
+#slider .slider .button.right {
+  background: url(img/slider-right.png);
+}
+
+#minis-wrapper {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+#minis {
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  white-space: nowrap;
+}
+#minis .mini {
+  cursor: pointer;
+  float: left;
+  height: 200px;
+  margin: 0px 4px;
+  position: relative;
+}
+#minis .mini .title {
+  background: #000;
+  color: #fff;
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  word-wrap: no-wrap;
+}
+#minis .mini .title .text {
+  font-weight: bold;
+  padding: 4px;
+}
+
+
+
+
+
+#masterpiece-image {
+  margin: auto;
+  position: relative;
+}
+
+#focals {
+  height: 100%;
+  width: 100%;
+}
+
+#focals .focal {
+  background: #ccc;
+  position: absolute;
+}
+
+
+
+
+
+#sider {
+  background: #000;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-left-radius: 20px;
+  color: #fff;
+  bottom: 40px;
+  position: fixed;
+  right: -280px;
+  top: 0px;
+  width: 300px;
+}
+#sider .content {
+  height: 100%;
+  overflow: auto;
+}
+#sider .content .title {
+  font-weight: bold;
+  padding: 8px;
+}
+#sider .content .text {
+  padding: 0px 8px 8px;
+}
+
+
+
+
+#focalider {
+  background: #000;
+  -webkit-border-bottom-right-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  border-bottom-right-radius: 20px;
+  color: #fff;
+  left: 0px;
+  padding: 4px 2px 3px;
+  position: fixed;
+  top: 0px;
+  width: 200px;
+  z-index: 2;
+}
+#focalider .kazanie {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 10px;
+  text-align: center;
+}
+#focalider .kazanie a {
+  color: #fff;
+  text-decoration: none;
+}
+#focalider .title {
+  margin-top: 2px;
+  padding-bottom: 4px;
+  text-align: center;
+}
+#focalider .focals {
+  height: 0px;
+  overflow: auto;
+}
+#focalider .focals .focal {
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 6px 2px;
+}
+#focalider .focals .focal:hover {
+  background: #222;
+}

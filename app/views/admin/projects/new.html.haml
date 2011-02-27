@@ -1,5 +1,12 @@
-%h1 New Project
+.breadcrumbs
+  = link_to 'all projects', admin_projects_path
+  >
+  new project
+
+.h1 New Project
 
 = render 'form'
 
-= link_to 'Back', admin_projects_path
+%br
+
+= link_to 'back to all projects', admin_projects_path

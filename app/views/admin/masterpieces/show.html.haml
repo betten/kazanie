@@ -1,49 +1,20 @@
-%h1 Masterpiece
-
-%p
-  %b Title:
+.breadcrumbs
+  = link_to 'all projects', admin_projects_path
+  >
+  = link_to @project.name, [:admin, @project]
+  >
   = @masterpiece.title
-%p
-  %b Text:
-  = @masterpiece.text
-%p
-  %b Image:
-  = image_tag @masterpiece.image.thumb("300x300").url
 
+.h1 Masterpiece
+
+.title= @masterpiece.title
+.image= image_tag @masterpiece.image.thumb("300x300>").url
+.text= @masterpiece.text
+
+= link_to 'back to project', [:admin, @project]
+\/
 = link_to 'edit masterpiece', edit_admin_project_masterpiece_path(@project, @masterpiece)
-\|
-= link_to 'all masterpieces', [:admin, @project]
-
-%h1 Focals
-
-%table
-  %tr
-    %th Title
-    %th Text
-    %th Masterpiece
-    %th Image uid
-    %th Height
-    %th Width
-    %th X
-    %th Y
-    %th
-    %th
-    %th
-
-  - @masterpiece.focals.each do |focal|
-    %tr
-      %td= focal.title
-      %td= focal.text
-      %td= focal.masterpiece
-      %td= focal.image_uid
-      %td= focal.height
-      %td= focal.width
-      %td= focal.x
-      %td= focal.y
-      %td= link_to 'view', [:admin, @project, @masterpiece, focal]
-      %td= link_to 'edit', edit_admin_project_masterpiece_focal_path(@masterpiece.project, @masterpiece, focal)
-      %td= link_to 'delete', [:admin, @project, @masterpiece, focal], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'new focal', new_admin_project_masterpiece_focal_path(@project, @masterpiece)
+= render :partial => 'focals'

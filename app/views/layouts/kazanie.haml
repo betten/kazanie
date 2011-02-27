@@ -1,21 +1,32 @@
 !!!
 %html
   %head
+    = stylesheet_link_tag "reset"
+    = stylesheet_link_tag "960"
+    = stylesheet_link_tag "kazanie"
+    = yield :stylesheets
+
+    = yield :javascripts
 
   %body
 
     #header
-      - if user_signed_in?
-        = "Signed in as #{current_user.email}. Not you?"
-        = link_to "Sign out", destroy_user_session_path
-      - else
-        = link_to "Sign up", new_user_registration_path
-        or
-        = link_to "sign in", new_user_session_path
+      .container_16
+        .title= link_to 'kazanie', :root
+        .signupinout
+          - if user_signed_in?
+            = "signed in as #{current_user.email}. not you?"
+            = link_to "sign out", destroy_user_session_path
+          - else
+            = link_to "sign up", new_user_registration_path
+            or
+            = link_to "sign in", new_user_session_path
 
 
     #content
-      .notice= notice
-      .alert= alert
+      .container_16
 
-      = yield
+        .notice= notice
+        .alert= alert
+
+        = yield

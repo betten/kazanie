@@ -1,0 +1,29 @@
+.h2 Focals
+
+.table
+  .header
+    .grid_2 Image 
+    .grid_4 Title
+    .grid_6 Text
+
+  .clear
+
+  .records
+    - @masterpiece.focals.each do |focal|
+      .record
+        .grid_2= image_tag focal.image.thumb("100x100#").url
+        .grid_4= focal.title
+        .grid_6= focal.text
+        .grid_4
+          = link_to 'view', [:admin, @project, @masterpiece, focal]
+          \/
+          = link_to 'edit', edit_admin_project_masterpiece_focal_path(@masterpiece.project, @masterpiece, focal)
+          \/
+          = link_to 'delete', [:admin, @project, @masterpiece, focal], :confirm => 'Are you sure?', :method => :delete
+        .clear
+
+  .clear
+
+%br
+
+= link_to 'new focal', new_admin_project_masterpiece_focal_path(@project, @masterpiece)

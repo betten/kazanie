@@ -1,7 +1,20 @@
-%h1 Editing Focal
+.breadcrumbs
+  = link_to 'all projects', admin_projects_path
+  >
+  = link_to @project.name, [:admin, @project]
+  >
+  = link_to @masterpiece.title, [:admin, @project, @masterpiece]
+  >
+  = link_to @focal.title, [:admin, @project, @masterpiece, @focal]
+  >
+  edit
+
+.h1 Edit Focal
 
 = render 'form'
 
-= link_to 'Show', @admin_focal
-\|
-= link_to 'Back', [:admin, @project, @masterpiece]
+%br
+
+= link_to 'back to focal', [:admin, @project, @masterpiece, @focal]
+\/
+= link_to 'back to masterpiece', [:admin, @project, @masterpiece]

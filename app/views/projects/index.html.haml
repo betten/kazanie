@@ -1,7 +1,14 @@
-%h1 Projects
+.h1 Projects
 
-#projects
-  - @projects.each do |project|
-    .project
-      -#.thumb= image_tag project.thumb
-      .name= link_to project.name, project
+#projects.table
+  .records
+    - @projects.each do |project|
+      .record
+        .grid_16.name= link_to project.name, project
+        .clear
+        .subrecords.grid_16
+          .thumbs
+            - project.masterpieces.each do |masterpiece|
+              = image_tag masterpiece.image.thumb("30x30#").url
+          .count= "(#{project.masterpieces.count} masterpieces)"
+      .clear

@@ -1,30 +1,18 @@
-%p#notice= notice
-
-%p
-  %b Title:
+.breadcrumbs
+  = link_to 'all projects', admin_projects_path
+  >
+  = link_to @project.name, [:admin, @project]
+  >
+  = link_to @masterpiece.title, [:admin, @project, @masterpiece]
+  >
   = @focal.title
-%p
-  %b Text:
-  = @focal.text
-%p
-  %b Masterpiece:
-  = @focal.masterpiece
-%p
-  %b Image uid:
-  = @focal.image_uid
-%p
-  %b Height:
-  = @focal.height
-%p
-  %b Width:
-  = @focal.width
-%p
-  %b X:
-  = @focal.x
-%p
-  %b Y:
-  = @focal.y
 
-= link_to 'Edit', edit_admin_project_masterpiece_focal_path(@project, @masterpiece, @focal)
-\|
-= link_to 'Back', [:admin, @project, @masterpiece]
+.h1 Focal
+
+.title= @focal.title
+.image= image_tag @focal.image.thumb("300x300>").url
+.text= @focal.text
+
+= link_to 'back to masterpiece', [:admin, @project, @masterpiece]
+\/
+= link_to 'edit focal', edit_admin_project_masterpiece_focal_path(@project, @masterpiece, @focal)

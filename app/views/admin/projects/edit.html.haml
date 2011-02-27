@@ -1,7 +1,20 @@
-%h1 Editing Project
+.breadcrumbs
+  = link_to 'all projects', admin_projects_path
+  >
+  = link_to @project.name, [:admin, @project]
+  >
+  edit
+
+.h1 Edit Project
 
 = render 'form'
 
-= link_to 'Show', [:admin, @project]
-\|
-= link_to 'Back', admin_projects_path
+%br
+
+= link_to 'back to project', [:admin, @project]
+\/
+= link_to 'back to all projects', admin_projects_path
+
+%br
+
+= render :partial => 'masterpieces'

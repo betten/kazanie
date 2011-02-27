@@ -1,33 +1,18 @@
-%h1 Project
-
-%p
-  %b Name:
+.breadcrumbs
+  = link_to 'all projects', admin_projects_path
+  >
   = @project.name
 
-= link_to 'edit project', edit_admin_project_path(@project)
-\|
+.h1 Project
+
+.title= @project.name
+
 = link_to 'all projects', admin_projects_path
-
-%h1 Masterpieces
-
-%table
-  %tr
-    %th Title
-    %th Text
-    %th Image
-    %th
-    %th
-    %th
-
-  - @project.masterpieces.each do |masterpiece|
-    %tr
-      %td= masterpiece.title
-      %td= masterpiece.text
-      %td= image_tag masterpiece.image.thumb("100x100#").url
-      %td= link_to 'view', [:admin, @project, masterpiece]
-      %td= link_to 'edit', edit_admin_project_masterpiece_path(@project, masterpiece)
-      %td= link_to 'delete', [:admin, @project, masterpiece], :confirm => 'Are you sure?', :method => :delete
+\/
+= link_to 'edit project', edit_admin_project_path(@project)
+\/
+%a{ :href => project_path(@project) } see live &rarr;
 
 %br
 
-= link_to 'new masterpiece', new_admin_project_masterpiece_path(@project)
+= render :partial => 'masterpieces'

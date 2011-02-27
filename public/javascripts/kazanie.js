@@ -236,6 +236,7 @@ $(function() {
     },
 
     initialize: function() {
+      console.log(this.model);
       this.render();
     },
 
@@ -302,6 +303,7 @@ $(function() {
     initialize: function(options) {
       this.masterpieces = this.options.masterpieces;
       new Kazanie.Views.Slider({ masterpieces: this.masterpieces });
+      $('#slider .mini').first().click();
     }
 
   });

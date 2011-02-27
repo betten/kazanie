@@ -1,0 +1,5 @@
+#masterpiece {
+  position: relative; }
+  #masterpiece #focal {
+    background: red;
+    position: absolute; }

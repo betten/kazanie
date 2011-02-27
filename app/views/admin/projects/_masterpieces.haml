@@ -1,0 +1,37 @@
+.h2 Masterpieces
+
+.clear
+
+.table
+  .header
+    .grid_2 Image
+    .grid_4 Title
+    .grid_6 Text
+
+  .clear
+
+  .records
+    - @project.masterpieces.each do |masterpiece|
+      .record
+        .grid_2= image_tag masterpiece.image.thumb("100x100#").url
+        .grid_4= masterpiece.title
+        .grid_6= masterpiece.text
+        .grid_4
+          = link_to 'view', [:admin, @project, masterpiece]
+          \/
+          = link_to 'edit', edit_admin_project_masterpiece_path(@project, masterpiece)
+          \/
+          = link_to 'delete', [:admin, @project, masterpiece], :confirm => 'Are you sure?', :method => :delete
+        .clear
+        .subrecords.grid_16
+          .thumbs
+            - masterpiece.focals.each do |focal|
+              = image_tag focal.image.thumb("30x30#").url
+          .count= "(#{masterpiece.focals.count} focals)"
+      .clear
+
+  .clear
+
+%br
+
+= link_to 'new masterpiece', new_admin_project_masterpiece_path(@project)

@@ -1,7 +1,22 @@
-%h1 Editing Masterpiece
+.breadcrumbs
+  = link_to 'all projects', admin_projects_path
+  >
+  = link_to @project.name, [:admin, @project]
+  >
+  = link_to @masterpiece.title, [:admin, @project, @masterpiece]
+  >
+  edit
+
+.h1 Edit Masterpiece
 
 = render 'form'
 
-= link_to 'Show', [:admin, @project, @masterpiece]
-\|
-= link_to 'Back', [:admin, @project]
+%br
+
+= link_to 'back to masterpiece', [:admin, @project, @masterpiece]
+\/
+= link_to 'back to project', [:admin, @project]
+
+%br
+
+= render :partial => 'focals'

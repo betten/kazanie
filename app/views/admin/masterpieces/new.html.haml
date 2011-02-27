@@ -1,5 +1,14 @@
-%h1 New Masterpiece
+.breadcrumbs
+  = link_to 'all projects', admin_projects_path
+  >
+  = link_to @project.name, [:admin, @project]
+  >
+  new masterpiece
+
+.h1 New Masterpiece
 
 = render 'form'
 
-= link_to 'Back', [:admin, @project]
+%br
+
+= link_to 'back to project', [:admin, @project]

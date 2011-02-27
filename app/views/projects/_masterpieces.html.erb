@@ -3,10 +3,10 @@
     <% project.masterpieces.each do |masterpiece| %>
     new Kazanie.Models.Masterpiece({
       height:   <%= masterpiece.image.height %>,
-      title:    '<%= masterpiece.title %>',
-      text:     '<%= masterpiece.text %>',
-      url:      '<%= masterpiece.image.url %>',
-      miniurl:  '<%= masterpiece.image.thumb("x200").url %>',
+      title:    "<%= sanitize masterpiece.title %>",
+      text:     "<%= sanitize masterpiece.text %>",
+      url:      "<%= masterpiece.image.url %>",
+      miniurl:  "<%= masterpiece.image.thumb("x200").url %>",
       width:    <%= masterpiece.image.width %>,
       focals:   new Kazanie.Collections.Focals([
         <% masterpiece.focals.each do |focal| %>
@@ -15,9 +15,9 @@
           y:        <%= focal.y %>,
           height:   <%= focal.height %>,
           width:    <%= focal.width %>,
-          url:      '<%= focal.image.url(:suffix => '.png') %>',
-          title:    '<%= focal.title %>',
-          text:     '<%= focal.text %>'
+          url:      "<%= focal.image.url(:suffix => ".png") %>",
+          title:    "<%= sanitize focal.title %>",
+          text:     "<%= sanitize focal.text %>"
         }),
         <% end %>
       ])
