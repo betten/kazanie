@@ -70,7 +70,7 @@ class Admin::FocalsController < ApplicationController
     @focal.destroy
 
     respond_to do |format|
-      format.html { redirect_to([:admin, @project, @masterpiece]) }
+      format.html { redirect_to([:admin, @project, @masterpiece], :notice => 'Focal was successfully deleted.') }
       format.xml  { head :ok }
     end
   end

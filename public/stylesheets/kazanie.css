@@ -1,4 +1,5 @@
 body {
+  background: black;
   font-family: arial; }
 
 #header {
@@ -22,8 +23,9 @@ body {
       font-weight: bold; }
 
 #content {
-  margin-top: 20px;
-  margin-bottom: 60px; }
+  background: white;
+  padding-top: 20px;
+  padding-bottom: 60px; }
   #content .notice {
     color: #006600;
     font-weight: bold; }
@@ -67,14 +69,27 @@ body {
           display: inline;
           font-size: 12px;
           font-weight: bold; }
+  #content .button_to {
+    display: inline; }
+    #content .button_to div {
+      display: inline; }
+    #content .button_to .delete {
+      background: none;
+      border: none;
+      color: #0000ee;
+      cursor: pointer;
+      font-size: inherit;
+      margin: 0px;
+      padding: 0px;
+      text-decoration: underline; }
 
 #projects .name {
   font-size: 20px; }
 
-#footer {
-  background: black;
-  position: fixed;
-  height: 40px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px; }
+/*#footer
+ * background: #000
+ * position: fixed
+ * height: 40px
+ * bottom: 0px
+ * left: 0px
+ * right: 0px */

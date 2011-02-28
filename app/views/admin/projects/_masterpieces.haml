@@ -21,7 +21,7 @@
           \/
           = link_to 'edit', edit_admin_project_masterpiece_path(@project, masterpiece)
           \/
-          = link_to 'delete', [:admin, @project, masterpiece], :confirm => 'Are you sure?', :method => :delete
+          = button_to 'delete', [:admin, @project, masterpiece], :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
         .clear
         .subrecords.grid_16
           .thumbs

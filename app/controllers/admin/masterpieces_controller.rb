@@ -70,7 +70,7 @@ class Admin::MasterpiecesController < ApplicationController
     @masterpiece.destroy
 
     respond_to do |format|
-      format.html { redirect_to([:admin, @project]) }
+      format.html { redirect_to([:admin, @project], :notice => 'Masterpiece was successfully deleted.') }
       format.xml  { head :ok }
     end
   end
