@@ -7,8 +7,8 @@
     new Kazanie.Models.Masterpiece({
       id:       "<%= masterpiece.id %>",
       height:   <%= masterpiece.image.height %>,
-      title:    "<%= sanitize masterpiece.title %>",
-      text:     "<%= sanitize masterpiece.text %>",
+      title:    "<%= h masterpiece.title %>",
+      text:     "<%= h masterpiece.text %>",
       url:      "<%= masterpiece.image.url %>",
       miniurl:  "<%= masterpiece.image.thumb("x200").url %>",
       width:    <%= masterpiece.image.width %>,
@@ -21,8 +21,8 @@
           height:   <%= focal.height %>,
           width:    <%= focal.width %>,
           url:      "<%= focal.image.url(:suffix => ".png") %>",
-          title:    "<%= sanitize focal.title %>",
-          text:     "<%= sanitize focal.text %>"
+          title:    "<%= h focal.title %>",
+          text:     "<%= h focal.text %>"
         }),
         <% end %>
       ])
