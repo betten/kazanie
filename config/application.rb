@@ -38,5 +38,8 @@ module Kazanie
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # make sure the last arg is the same as the app's configured prefix
+    config.middleware.insert_before 'Rack::Lock', 'Dragonfly::Middleware', :images, '/media'
   end
 end
