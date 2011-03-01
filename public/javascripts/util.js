@@ -57,4 +57,13 @@ $(function() {
   $('.table .record').zebrify();
 
   $('.sortable').sortify();
+
+  if($('.notice').text().length) {
+    $('.notice').show().delay(5000).slideUp();
+  }
+
+  if($('.alert').text().length) {
+    $('.alert').show();
+  }
+
 });
