@@ -15,7 +15,7 @@
         .grid_4= focal.title
         .grid_6= focal.text
         .grid_4
-          = link_to 'view', [:admin, @project, @masterpiece, focal]
+          = link_to 'view', project_masterpiece_focal_path(@project, @masterpiece, focal)
           \/
           = link_to 'edit', edit_admin_project_masterpiece_focal_path(@project, @masterpiece, focal)
           \/
@@ -24,7 +24,4 @@
 
   .clear
 
-%br
-
-= link_to 'new focal', new_admin_project_masterpiece_focal_path(@project, @masterpiece)
 

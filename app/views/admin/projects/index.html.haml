@@ -2,23 +2,27 @@
 
 .table
   .header
-    .grid_6
+    .grid_5
       Name
+    .grid_3
+      Created By
+    .grid_3
+      Last Updated
   
   .clear
 
   .records
     - @projects.each do |project|
       .record
-        .grid_6= project.name
-        .grid_10
-          = link_to 'view', [:admin, project]
+        .grid_5= project.name
+        .grid_3= project.user.email
+        .grid_3= "#{time_ago_in_words(project.updated_at)} ago"
+        .grid_4
+          = link_to 'view', project
           \/
           = link_to 'edit', edit_admin_project_path(project)
           \/
           = button_to 'delete', [:admin, project], :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
-          \/
-          %a{ :href => project_path(project) } see live &rarr;
         .clear
         .subrecords.grid_16
           .thumbs

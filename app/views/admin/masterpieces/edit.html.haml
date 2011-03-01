@@ -13,9 +13,9 @@
 
 %br
 
-= link_to 'back to masterpiece', [:admin, @project, @masterpiece]
+= link_to 'back to project', edit_admin_project_path(@project)
 \/
-= link_to 'back to project', [:admin, @project]
+= link_to 'new focal', new_admin_project_masterpiece_focal_path(@project, @masterpiece)
 
 %br
 

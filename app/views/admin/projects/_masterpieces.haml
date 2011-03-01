@@ -17,7 +17,7 @@
         .grid_4= masterpiece.title
         .grid_6= masterpiece.text
         .grid_4
-          = link_to 'view', [:admin, @project, masterpiece]
+          = link_to 'view', project_masterpiece_path(@project, masterpiece)
           \/
           = link_to 'edit', edit_admin_project_masterpiece_path(@project, masterpiece)
           \/
@@ -32,6 +32,3 @@
 
   .clear
 
-%br
-
-= link_to 'new masterpiece', new_admin_project_masterpiece_path(@project)
