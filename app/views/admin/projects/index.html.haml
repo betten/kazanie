@@ -22,7 +22,7 @@
         .clear
         .subrecords.grid_16
           .thumbs
-            - project.masterpieces.each do |masterpiece|
+            - project.masterpieces.sorted.each do |masterpiece|
               = image_tag masterpiece.image.thumb("30x30#").url
           .count= "(#{project.masterpieces.count} masterpieces)"
       .clear
@@ -30,3 +30,4 @@
 %br
 
 = link_to 'new project', new_admin_project_path
+    

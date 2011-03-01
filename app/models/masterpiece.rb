@@ -3,4 +3,6 @@ class Masterpiece < ActiveRecord::Base
   has_many :focals
 
   image_accessor :image
+
+  scope :sorted, order("masterpieces.position ASC")
 end

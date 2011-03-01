@@ -69,6 +69,8 @@ body {
           display: inline;
           font-size: 12px;
           font-weight: bold; }
+  #content .table .records.sortable {
+    cursor: move; }
   #content .button_to {
     display: inline; }
     #content .button_to div {
@@ -82,6 +84,8 @@ body {
       margin: 0px;
       padding: 0px;
       text-decoration: underline; }
+  #content .zebra {
+    background: #f0f0f0; }
 
 #projects .name {
   font-size: 20px; }

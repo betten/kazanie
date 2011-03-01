@@ -9,9 +9,19 @@ Kazanie::Application.routes.draw do
 
   namespace :admin do
     resources :projects do
+
       resources :masterpieces, :except => [:index] do
-        resources :focals, :except => [:index]
+        collection do
+          post 'sort'
+        end
+
+        resources :focals, :except => [:index] do
+          collection do
+            post 'sort'
+          end
+        end
       end
+
     end
   end
 

@@ -3,7 +3,7 @@
   var Kazanie = window.Kazanie || {};
 
   Kazanie.Masterpieces = new Kazanie.Collections.Masterpieces([
-    <% project.masterpieces.each do |masterpiece| %>
+    <% project.masterpieces.sorted.each do |masterpiece| %>
     new Kazanie.Models.Masterpiece({
       id:       "<%= masterpiece.id %>",
       height:   <%= masterpiece.image.height %>,
@@ -13,7 +13,7 @@
       miniurl:  "<%= masterpiece.image.thumb("x200").url %>",
       width:    <%= masterpiece.image.width %>,
       focals:   new Kazanie.Collections.Focals([
-        <% masterpiece.focals.each do |focal| %>
+        <% masterpiece.focals.sorted.each do |focal| %>
         new Kazanie.Models.Focal({
           id:       "<%= focal.id %>",
           x:        <%= focal.x %>,

@@ -8,16 +8,16 @@
 
   .clear
 
-  .records
-    - @masterpiece.focals.each do |focal|
-      .record
+  .records.sortable{ :url => focals_sortable_url }
+    - @masterpiece.focals.sorted.each do |focal|
+      .record{ :id => focal.id }
         .grid_2= image_tag focal.image.thumb("100x100#").url
         .grid_4= focal.title
         .grid_6= focal.text
         .grid_4
           = link_to 'view', [:admin, @project, @masterpiece, focal]
           \/
-          = link_to 'edit', edit_admin_project_masterpiece_focal_path(@masterpiece.project, @masterpiece, focal)
+          = link_to 'edit', edit_admin_project_masterpiece_focal_path(@project, @masterpiece, focal)
           \/
           = button_to 'delete', [:admin, @project, @masterpiece, focal], :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
         .clear
@@ -27,3 +27,4 @@
 %br
 
 = link_to 'new focal', new_admin_project_masterpiece_focal_path(@project, @masterpiece)
+

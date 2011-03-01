@@ -10,9 +10,9 @@
 
   .clear
 
-  .records
-    - @project.masterpieces.each do |masterpiece|
-      .record
+  .records.sortable{ :url => masterpieces_sortable_url }
+    - @project.masterpieces.sorted.each do |masterpiece|
+      .record{ :id => masterpiece.id }
         .grid_2= image_tag masterpiece.image.thumb("100x100#").url
         .grid_4= masterpiece.title
         .grid_6= masterpiece.text
@@ -25,7 +25,7 @@
         .clear
         .subrecords.grid_16
           .thumbs
-            - masterpiece.focals.each do |focal|
+            - masterpiece.focals.sorted.each do |focal|
               = image_tag focal.image.thumb("30x30#").url
           .count= "(#{masterpiece.focals.count} focals)"
       .clear

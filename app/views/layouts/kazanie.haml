@@ -4,10 +4,12 @@
     = stylesheet_link_tag "reset"
     = stylesheet_link_tag "960"
     = stylesheet_link_tag "kazanie"
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
     = yield :stylesheets
 
     = javascript_include_tag "lib/jquery-min"
-    = javascript_include_tag "admin"
+    = javascript_include_tag "lib/jquery-ui-1.8.10.custom.min"
+    = javascript_include_tag "util"
     = yield :javascripts
 
   %body

@@ -75,6 +75,15 @@ class Admin::MasterpiecesController < ApplicationController
     end
   end
 
+  def sort
+    params[:order].each do |pos, id|
+      f = Masterpiece.find(id)
+      f.position = pos.to_i
+      f.save
+    end
+    render :nothing => true
+  end
+
   private
 
   def set_project

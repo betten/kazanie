@@ -1,9 +1,7 @@
 - content_for :javascripts do
-  = javascript_include_tag "lib/jquery-ui-1.8.10.custom.min"
   = javascript_include_tag "focals"
 - content_for :stylesheets do
   = stylesheet_link_tag "focals"
-  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 
 = form_for [:admin, @project, @masterpiece, @focal], :html => {:multipart => true} do |f|
   -if @focal.errors.any?
