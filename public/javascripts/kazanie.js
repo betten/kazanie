@@ -30,7 +30,17 @@ $(function() {
       masterpiece.get('focals').each(function(focal) {
         new Kazanie.Views.Focal({ model: focal, masterpiece: masterpiece }).render();
       });
+
+      $('#fancybox-outer').unbind('hover').hover(
+        function() {
+          $('#fancybox-title').fadeIn();
+        },
+        function() {
+          $('#fancybox-title').fadeOut();
+        }
+      );
       $('#masterpiece a.fancybox-group').fancybox({
+        'titlePosition': 'over',
         'onComplete': function() {
           $(this.orig).trigger('focus');
         },
@@ -38,6 +48,7 @@ $(function() {
           $(this.orig).trigger('unfocus');
         }
       });
+
       Kazanie.Controller.saveLocation('masterpiece/' + this.model.get('id'));
     },
 

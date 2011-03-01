@@ -22,7 +22,7 @@
           width:    <%= focal.width %>,
           url:      "<%= focal.image.url(:suffix => ".png") %>",
           title:    "<%= h focal.title %>",
-          text:     "<%= h focal.text %>"
+          text:     "<%= h focal.text.gsub(/\r\n/,'\r') %>"
         }),
         <% end %>
       ])

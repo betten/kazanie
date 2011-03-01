@@ -77,6 +77,15 @@ body {
   position: absolute;
 }
 
+#fancybox-title {
+  display: none;
+  max-height: 140px;
+  overflow: auto;
+}
+#fancybox-title-over {
+  white-space: pre;
+  word-wrap: break-word;
+}
 
 
 
