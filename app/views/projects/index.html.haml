@@ -12,6 +12,9 @@
                 = image_tag masterpiece.image.thumb("30x30#").url
             .count= "(#{project.masterpieces.count} masterpieces)"
         .clear
+    .paginate
+      .controls= will_paginate @projects
+      .info= page_entries_info @projects
 
 .grid_9
   .h1 Welcome to Kazanie

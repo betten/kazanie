@@ -1,6 +1,7 @@
 body {
   background: black;
-  font-family: arial; }
+  font-family: arial;
+  padding-bottom: 20px; }
 
 #header {
   background: url(/images/header-background.png) center 0 no-repeat black;
@@ -100,6 +101,10 @@ body {
 
 #projects .name {
   font-size: 20px; }
+#projects .paginate {
+  font-size: 13px; }
+  #projects .paginate .controls {
+    float: right; }
 
 /*#footer
  * background: #000
