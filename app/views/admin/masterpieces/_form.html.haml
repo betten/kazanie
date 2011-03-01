@@ -1,6 +1,6 @@
 = form_for [:admin, @project, @masterpiece], :html => {:multipart => true} do |f|
   -if @masterpiece.errors.any?
-    #error_explanation
+    #error_explanation.error
       %h2= "#{pluralize(@masterpiece.errors.count, "error")} prohibited this masterpiece from being saved:"
       %ul
         - @masterpiece.errors.full_messages.each do |msg|

@@ -34,16 +34,24 @@ body {
     color: #006600;
     display: none;
     font-weight: bold;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
     padding: 10px; }
   #content .alert {
+    display: none; }
+  #content .error {
     background: #ffe4e1;
     border: 2px solid red;
     color: red;
-    display: none;
     font-weight: bold;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
     padding: 10px; }
+    #content .error ul {
+      font-weight: normal;
+      margin: 10px; }
+      #content .error ul li {
+        list-style: circle inside; }
+  #content .field .field_with_errors {
+    display: inline; }
   #content .h1 {
     font-size: 40px;
     font-weight: bold;
@@ -61,7 +69,8 @@ body {
   #content label {
     display: block; }
   #content .title {
-    font-size: 30px; }
+    font-size: 30px;
+    margin: 4px 0px; }
   #content .field {
     margin-bottom: 20px; }
   #content .table .header {

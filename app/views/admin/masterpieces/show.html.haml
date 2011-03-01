@@ -11,9 +11,11 @@
 .image= image_tag @masterpiece.image.thumb("300x300>").url
 .text= @masterpiece.text
 
-= link_to 'back to project', [:admin, @project]
+= link_to 'back to project', edit_admin_project_path(@project)
 \/
 = link_to 'edit masterpiece', edit_admin_project_masterpiece_path(@project, @masterpiece)
+\/
+= link_to 'new focal', new_admin_project_masterpiece_focal_path(@project, @masterpiece)
 
 %br
 
