@@ -38,17 +38,20 @@ body {
     padding: 10px; }
   #content .alert {
     display: none; }
-  #content .error {
+  #content .error,
+  #content #error_explanation {
     background: #ffe4e1;
     border: 2px solid red;
     color: red;
     font-weight: bold;
     margin-bottom: 10px;
     padding: 10px; }
-    #content .error ul {
+    #content .error ul,
+    #content #error_explanation ul {
       font-weight: normal;
       margin: 10px; }
-      #content .error ul li {
+      #content .error ul li,
+      #content #error_explanation ul li {
         list-style: circle inside; }
   #content .field .field_with_errors {
     display: inline; }
