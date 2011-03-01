@@ -1,5 +1,44 @@
 require 'spec_helper'
 
 describe Masterpiece do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "a new masterpiece" do
+    
+    before do
+      @masterpiece = Masterpiece.new(valid_masterpiece_hash)
+    end
+
+    it "should be valid" do
+      @masterpiece.should be_valid
+    end
+
+    it "should not be valid without a project" do
+      @masterpiece.project = nil
+      @masterpiece.should_not be_valid
+    end
+
+    it "should not be valid without a title" do
+      @masterpiece.title = ''
+      @masterpiece.should_not be_valid
+    end
+
+    it "should not be valid without text" do
+      @masterpiece.text = ''
+      @masterpiece.should_not be_valid
+    end
+
+    it "should not be valid without an image" do
+      @masterpiece.image_uid = ''
+      @masterpiece.should_not be_valid
+    end
+
+    def valid_masterpiece_hash
+      {
+        :project => Project.new,
+        :title => 'title',
+        :text => 'text',
+        :image_uid => '1'
+      }
+    end
+
+  end
 end
