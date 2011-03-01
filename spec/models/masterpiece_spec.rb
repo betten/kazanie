@@ -27,7 +27,7 @@ describe Masterpiece do
     end
 
     it "should not be valid without an image" do
-      @masterpiece.image_uid = ''
+      @masterpiece.image = nil
       @masterpiece.should_not be_valid
     end
 
@@ -36,7 +36,7 @@ describe Masterpiece do
         :project => Project.new,
         :title => 'title',
         :text => 'text',
-        :image_uid => '1'
+        :image => '1'
       }
     end
 

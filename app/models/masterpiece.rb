@@ -9,7 +9,7 @@ class Masterpiece < ActiveRecord::Base
   validates_presence_of :project
   validates_presence_of :title
   validates_presence_of :text
-  validates_presence_of :image_uid
+  validates_presence_of :image
 
 end
 

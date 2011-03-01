@@ -27,7 +27,7 @@ describe Focal do
     end
 
     it "should not be valid without an image" do
-      @focal.image_uid = ''
+      @focal.image = nil
       @focal.should_not be_valid
     end
 
@@ -36,7 +36,7 @@ describe Focal do
         :masterpiece => Masterpiece.new,
         :title => 'title',
         :text => 'text',
-        :image_uid => '1'
+        :image => '1'
       }
     end
 
