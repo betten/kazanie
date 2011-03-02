@@ -22,6 +22,11 @@
     = f.file_field :image
   .field
     = f.label 'Position (click and drag to move/resize)'
+    .hidden
+      %label
+        %input#hidden-focal{ :type => "checkbox", :checked => @focal.hidden? }
+        hidden
+        .explanation (a hidden focal will not appear on the image but will still be listed in the left side focal dropdown)      
     #masterpiece
       = image_tag @masterpiece.image.process(:resize, "960x960>").url
       #focal

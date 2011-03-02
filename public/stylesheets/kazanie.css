@@ -118,6 +118,12 @@ body {
   #projects .paginate .controls {
     float: right; }
 
+#new_focal .hidden {
+  margin: 3px 0; }
+  #new_focal .hidden .explanation {
+    font-size: 13px;
+    display: inline; }
+
 /*#footer
  * background: #000
  * position: fixed

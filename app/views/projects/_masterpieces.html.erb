@@ -8,7 +8,7 @@
       id:       "<%= masterpiece.id %>",
       height:   <%= masterpiece.image.height %>,
       title:    "<%= h masterpiece.title %>",
-      text:     "<%= h masterpiece.text %>",
+      text:     "<%= h masterpiece.text.gsub(/\r\n/, '\r') %>",
       url:      "<%= masterpiece.image.url %>",
       miniurl:  "<%= masterpiece.image.thumb("x200").url %>",
       width:    <%= masterpiece.image.width %>,

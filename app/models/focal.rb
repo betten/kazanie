@@ -10,4 +10,8 @@ class Focal < ActiveRecord::Base
   validates_presence_of :text
   validates_presence_of :image
 
+  def hidden?
+    [self.height, self.width, self.x, self.y].reject{ |x| x.eql?("0") }.blank?
+  end
+
 end
