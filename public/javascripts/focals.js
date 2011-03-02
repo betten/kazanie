@@ -176,20 +176,23 @@ var Masterpiece = function() {
 
 };
 
-$('#masterpiece img').load(function() {
+$('#masterpiece').onImagesLoad({
+  selectorCallback: function() {
 
-  var masterpiece = new Masterpiece();
+    var masterpiece = new Masterpiece();
 
-  var focal = new Focal(masterpiece);
+    var focal = new Focal(masterpiece);
 
-  $('#hidden-focal').change(function() {
-    if($(this).is(':checked')) {
-      focal.hide();
-    }
-    else {
-      focal.unhide();
-    }
-  });
+    $('#hidden-focal').change(function() {
+      if($(this).is(':checked')) {
+        focal.hide();
+      }
+      else {
+        focal.unhide();
+      }
+    });
+
+  }
 });
 
 
