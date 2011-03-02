@@ -8,7 +8,7 @@
       id:       "<%= masterpiece.id %>",
       height:   <%= masterpiece.image.height %>,
       title:    "<%= h masterpiece.title %>",
-      text:     "<%= h masterpiece.text.gsub(/\r\n/, '\r') %>",
+      text:     "<%= format_text(masterpiece.text) %>",
       url:      "<%= masterpiece.image.url %>",
       miniurl:  "<%= masterpiece.image.thumb("x200").url %>",
       width:    <%= masterpiece.image.width %>,
@@ -22,7 +22,7 @@
           width:    <%= focal.width %>,
           url:      "<%= focal.image.url(:suffix => ".png") %>",
           title:    "<%= h focal.title %>",
-          text:     "<%= h focal.text.gsub(/\r\n/,'\r') %>"
+          text:     "<%= format_text(focal.text) %>"
         }),
         <% end %>
       ])

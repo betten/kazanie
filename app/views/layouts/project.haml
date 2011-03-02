@@ -2,6 +2,8 @@
 %html
   %head
 
+    %title= "kazanie - #{@project.name} Project"
+
     -# stylesheets
     = stylesheet_link_tag "reset"
     = stylesheet_link_tag "project"
@@ -27,6 +29,8 @@
 
     -# templates
     = render :partial => "projects/templates"
+
+    = csrf_meta_tag
 
   %body
     

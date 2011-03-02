@@ -2,6 +2,7 @@ $(function() {
 
   Kazanie = window.Kazanie || {};
   Kazanie.Views = {};
+  Kazanie.timerDelay = 200;
 
 
   Kazanie.Views.Masterpiece = Backbone.View.extend({
@@ -163,12 +164,18 @@ $(function() {
       this.el.css({ opacity: 0.5 });
       this.el.html(ich['sider-view'](this.model.toJSON()));
     },
+
+    timer: null,
     
     slideOut: function() {
-      this.el.stop().animate({ opacity: 1.0, right: '0px' });
+      var sider = this.el;
+      this.timer = setTimeout(function() {
+        sider.stop().animate({ opacity: 1.0, right: '0px' });
+      }, Kazanie.timerDelay);
     },
 
     slideBack: function() {
+      clearTimeout(this.timer);
       this.el.stop().animate({ opacity: 0.5, right: '-280px' });
     }
   });
@@ -197,11 +204,17 @@ $(function() {
       });
     },
 
+    timer: null,
+
     slideUp: function() {
-      this.el.stop().animate({ opacity: 1.0, bottom: '0px' });
+      var slider = this.el;
+      this.timer = setTimeout(function() {
+        slider.stop().animate({ opacity: 1.0, bottom: '0px' });
+      }, Kazanie.timerDelay);
     },
 
     slideDown: function() {
+      clearTimeout(this.timer);
       this.el.stop().animate({ opacity: 0.3, bottom: '-180px' });
     },
 
@@ -280,14 +293,19 @@ $(function() {
       });
     },
 
+    timer: null,
+
     over: function() {
       var focals = this.$('.focals');
-      focals.stop().animate({
-        height: $(window).height() - focals.offset().top - 50 + 'px'
-      });
+      this.timer = setTimeout(function() {
+        focals.stop().animate({
+          height: $(window).height() - focals.offset().top - 50 + 'px'
+        });
+      }, Kazanie.timerDelay);
     },
 
     out: function() {
+      clearTimeout(this.timer);
       this.$('.focals').stop().animate({
         height: '0px'
       });

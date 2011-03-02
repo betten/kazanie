@@ -83,8 +83,8 @@ body {
   overflow: auto;
 }
 #fancybox-title-over {
-  white-space: pre;
-  word-wrap: break-word;
+  /*white-space: pre;
+  word-wrap: break-word;*/
 }
 
 
