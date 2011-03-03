@@ -42,6 +42,7 @@ $(function() {
       );
       $('#masterpiece a.fancybox-group').fancybox({
         'titlePosition': 'over',
+        'titleFromAlt': true,
         'onComplete': function() {
           $(this.orig).trigger('focus');
         },
@@ -111,7 +112,7 @@ $(function() {
       $(this.el)
         .attr('rel', 'focals')
         .attr('href', this.model.get('url') || '')
-        .attr('title', this.model.get('text') || '');
+        .attr('alt', this.model.get('text') || '');
 
       $('#focals').append(this.el);
 
