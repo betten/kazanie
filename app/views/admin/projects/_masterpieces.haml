@@ -13,21 +13,22 @@
   .records.sortable{ :url => masterpieces_sortable_url }
     - @project.masterpieces.sorted.each do |masterpiece|
       .record{ :id => masterpiece.id }
-        .grid_2= image_tag masterpiece.image.thumb("100x100#").url
-        .grid_4= masterpiece.title
-        .grid_6= masterpiece.text
+        .grid_6
+          .grid_2.alpha= image_tag masterpiece.image.thumb("100x100#").url
+          .grid_4.omega= masterpiece.title
+          .clear
+          .subrecords.grid_6.alpha.omega
+            .thumbs
+              - masterpiece.focals.sorted.each do |focal|
+                = image_tag focal.image.thumb("30x30#").url
+            .count= "(#{masterpiece.focals.count} focals)"
+        .grid_6= format_text(masterpiece.text)
         .grid_4
           = link_to 'view', project_masterpiece_path(@project, masterpiece)
           \/
           = link_to 'edit', edit_admin_project_masterpiece_path(@project, masterpiece)
           \/
           = button_to 'delete', [:admin, @project, masterpiece], :confirm => 'Are you sure?', :method => :delete, :class => 'delete'
-        .clear
-        .subrecords.grid_16
-          .thumbs
-            - masterpiece.focals.sorted.each do |focal|
-              = image_tag focal.image.thumb("30x30#").url
-          .count= "(#{masterpiece.focals.count} focals)"
       .clear
 
   .clear

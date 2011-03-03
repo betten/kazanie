@@ -11,7 +11,7 @@
 
 .title= @focal.title
 .image= image_tag @focal.image.thumb("300x300>").url
-.text= @focal.text
+.text= format_text(@focal.text)
 
 = link_to 'back to masterpiece', edit_admin_project_masterpiece_path(@project, @masterpiece)
 \/

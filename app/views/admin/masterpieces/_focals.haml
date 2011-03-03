@@ -13,7 +13,7 @@
       .record{ :id => focal.id }
         .grid_2= image_tag focal.image.thumb("100x100#").url
         .grid_4= focal.title
-        .grid_6= focal.text
+        .grid_6= format_text(focal.text)
         .grid_4
           = link_to 'view', project_masterpiece_focal_path(@project, @masterpiece, focal)
           \/

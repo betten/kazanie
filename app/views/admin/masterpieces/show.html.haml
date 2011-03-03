@@ -9,7 +9,7 @@
 
 .title= @masterpiece.title
 .image= image_tag @masterpiece.image.thumb("300x300>").url
-.text= @masterpiece.text
+.text= format_text(@masterpiece.text)
 
 = link_to 'back to project', edit_admin_project_path(@project)
 \/
